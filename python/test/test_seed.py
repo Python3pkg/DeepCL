@@ -6,7 +6,7 @@ print('with seed:')
 for it in range(5):
     PyDeepCL.RandomSingleton.seed(123)
     val = PyDeepCL.RandomSingleton.uniform()
-    print('', it, val)
+    print(('', it, val))
     if last is None:
         last = val
     assert last == val
@@ -16,7 +16,7 @@ print('without seed:')
 last = None
 for it in range(5):
     val = PyDeepCL.RandomSingleton.uniform()
-    print('', it, val)
+    print(('', it, val))
     assert last != val
     last = val
 

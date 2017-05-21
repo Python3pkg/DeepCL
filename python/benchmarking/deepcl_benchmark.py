@@ -3,7 +3,7 @@
 # This is intended to target inclusion in soumith's benchmarks as
 # https://github.com/soumith/convnet-benchmarks
 
-from __future__ import print_function
+
 
 import os
 import sys
@@ -136,13 +136,13 @@ def parse_custom_config(s):
             'k': ['outputPlanes', 'filterSize'],
             'b': ['batchSize'] }
     for part in s.split(','):
-        p, args = part[0], map(int, part[1:].split('x'))
-        run.update(zip(defs[p], args))
+        p, args = part[0], list(map(int, part[1:].split('x')))
+        run.update(list(zip(defs[p], args)))
     return run
 
 def go(runs):
     for run in runs:
-        for key in run.keys(): # copy key values into function scope
+        for key in list(run.keys()): # copy key values into function scope
             go.__globals__[key] = run[key]
         print( '' )
         print( 'CONFIG: ', run )

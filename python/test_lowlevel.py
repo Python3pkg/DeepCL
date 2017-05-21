@@ -3,7 +3,7 @@
 # train on mnist using low-level api
 
 
-from __future__ import print_function, division
+
 import sys
 import numpy as np
 import PyDeepCL

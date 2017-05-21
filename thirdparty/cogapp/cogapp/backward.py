@@ -13,8 +13,8 @@ if PY3:
     def to_bytes(s):
         return s.encode('utf8')
 else:
-    string_types = (basestring,)
-    text_types = (unicode,)
+    string_types = (str,)
+    text_types = (str,)
     bytes_types = (str,)
     def b(s):
         return s
@@ -23,6 +23,6 @@ else:
 
 # Pythons 2 and 3 differ on where to get StringIO
 try:
-    from cStringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO

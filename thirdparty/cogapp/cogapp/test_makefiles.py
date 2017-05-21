@@ -4,7 +4,7 @@
     Copyright 2004-2015, Ned Batchelder.
 """
 
-from __future__ import absolute_import
+
 
 import unittest                                 # This is a unittest, so this is fundamental.
 import shutil, os, random, types, tempfile      # We need these modules to write the tests.
@@ -28,13 +28,13 @@ class SimpleTests(unittest.TestCase):
         return os.path.exists(os.path.join(dname, fname))
 
     def checkFilesExist(self, d, dname):
-        for fname in d.keys():
+        for fname in list(d.keys()):
             assert(self.exists(dname, fname))
             if type(d[fname]) == type({}):
                 self.checkFilesExist(d[fname], os.path.join(dname, fname))
 
     def checkFilesDontExist(self, d, dname):
-        for fname in d.keys():
+        for fname in list(d.keys()):
             assert(not self.exists(dname, fname))
 
     def testOneFile(self):

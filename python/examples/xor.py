@@ -6,7 +6,7 @@
 """
 Simple example of xor
 """
-from __future__ import print_function
+
 import PyDeepCL
 import random
 import numpy as np

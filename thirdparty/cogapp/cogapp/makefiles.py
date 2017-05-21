@@ -4,7 +4,7 @@
     Copyright 2004-2012, Ned Batchelder.
 """
 
-from __future__ import absolute_import
+
 import os.path
 from .whiteutils import reindentBlock
 from .backward import string_types, bytes_types
@@ -15,7 +15,7 @@ __all__ = ['makeFiles', 'removeFiles']
 def makeFiles(d, basedir='.'):
     """ Create files from the dictionary `d`, in the directory named by `basedir`.
     """
-    for name, contents in d.items():
+    for name, contents in list(d.items()):
         child = os.path.join(basedir, name)
         if isinstance(contents, string_types):
             mode = 'w'
@@ -34,7 +34,7 @@ def removeFiles(d, basedir='.'):
     """ Remove the files created by makeFiles.
         Directories are removed if they are empty.
     """
-    for name, contents in d.items():
+    for name, contents in list(d.items()):
         child = os.path.join(basedir, name)
         if isinstance(contents, string_types):
             os.remove(child)

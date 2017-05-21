@@ -4,7 +4,7 @@
     Copyright 2004-2015, Ned Batchelder.
 """
 
-from __future__ import absolute_import, print_function
+
 
 import copy, getopt, hashlib, imp, os, re, shlex, sys, traceback, glob
 from .backward import PY3, StringIO, string_types, to_bytes

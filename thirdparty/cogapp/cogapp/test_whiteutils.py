@@ -4,7 +4,7 @@
     Copyright 2004-2015, Ned Batchelder.
 """
 
-from __future__ import absolute_import
+
 
 import unittest
 

@@ -6,7 +6,7 @@
 #
 #     PYTHONPATH=. python benchmarking/test_singlelayer.py
 
-from __future__ import print_function
+
 
 import deepcl_benchmark
 

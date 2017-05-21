@@ -4,7 +4,7 @@
     Copyright 2004-2012, Ned Batchelder.
 """
 
-from __future__ import absolute_import
+
 import re
 from .backward import string_types, bytes_types, to_bytes, text_types, b
 

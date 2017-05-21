@@ -3,7 +3,7 @@ simple smoke test that can at least load DeepCL, run a couple of simple fucntion
 travis builds at https://travis-ci.org/hughperkins/DeepCL/builds
 """
 
-from __future__ import print_function, division
+
 import array
 import PyDeepCL
 import sys

@@ -5,7 +5,7 @@
 # extending this to handle also a couple of clarke and storkey type layers
 # and some plausible mnist layers
 
-from __future__ import print_function
+
 import os
 import sys
 import time
@@ -62,14 +62,14 @@ def write_results( label, net_string, layer, benchmark_type, direction, time_ms 
 def time_layer(num_epochs, label, batch_size, net_string):
     print('building network...')
     input_string, layer_string = net_string.split('-')
-    input_planes, input_size = map(lambda x: int(x), input_string.split('i'))
+    input_planes, input_size = [int(x) for x in input_string.split('i')]
     cl = PyDeepCL.DeepCL()
     net = PyDeepCL.NeuralNet( cl, input_planes, input_size )
     net.addLayer( PyDeepCL.ForceBackpropMaker() ) # this forces the next layer to backward gradients to
                           # this layer
     print( net.asString() )
     if 'c' in layer_string:
-        num_filters, filter_size = map(lambda x: int(x), layer_string.split('c'))
+        num_filters, filter_size = [int(x) for x in layer_string.split('c')]
         net.addLayer( PyDeepCL.ConvolutionalMaker().numFilters(num_filters)
             .filterSize(filter_size).biased() )
     elif 'n' in layer_string:
@@ -137,7 +137,7 @@ def time_fullnet(num_epochs, label, batch_size, net_string):
     split_net_string = net_string.split('-')
     input_string = split_net_string[0]
     netdef = '-'.join(split_net_string[1:])
-    input_planes, input_size = map(lambda x: int(x), input_string.split('i'))
+    input_planes, input_size = [int(x) for x in input_string.split('i')]
     cl = PyDeepCL.DeepCL()
     net = PyDeepCL.NeuralNet(cl, input_planes, input_size )
     PyDeepCL.NetdefToNet.createNetFromNetdef(net, netdef)

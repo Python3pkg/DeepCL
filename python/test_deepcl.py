@@ -2,7 +2,7 @@
 
 # as test_deepcl, but uses numpy tensors
 
-from __future__ import print_function, division
+
 import PyDeepCL
 import sys
 import numpy as np
